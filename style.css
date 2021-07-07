@@ -1,0 +1,78 @@
+body{
+    background: linear-gradient(-45deg, #f3a28a, #f7a6c5, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+      }
+    50% {
+      background-position: 100% 50%;
+      }
+    100% {
+      background-position: 0% 50%;
+      }
+}
+.text-wrapper{
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.text-wrapper h1{
+    text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15),
+               0 30px 20px rgba(0,0,0,.1);  
+}
+.keys {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+}
+
+.key {
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all 2.07s;
+    width: 100px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255,255,255, 0.35);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 40px 5px;
+    border: 2px rgba(255,255,255,0.4) solid;
+    border-bottom: 1px rgba(40,40,40,0.5) solid;
+    border-right: 1px rgba(255,255,255,0.25) solid;
+    transition: transform 1s ;
+  
+    
+}
+.key:hover{
+    transform: scale(1.1);
+
+}
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+}
+kbd {
+    display: block;
+    font-size: 40px;
+}

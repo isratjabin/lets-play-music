@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum kit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="text-wrapper">
+        <h1>Lets play music</h1>
+        <p>Press the respective key on your  keyboard</p>
+    </div>
+    <div class="keys">
+        <div class="key" data-key="67">
+            <kbd>C</kbd>
+            <span>Clap</span>
+        </div>
+        <div class="key" data-key="72">
+            <kbd>H</kbd>
+            <span>Hangout</span>
+        </div>
+        <div class="key" data-key="68">
+            <kbd>D</kbd>
+            <span>Drum</span>
+        </div>
+        <div class="key" data-key="65">
+            <kbd>A</kbd>
+            <span>Cheer</span>
+        </div>
+    </div>
+
+
+
+<audio data-key="67" src="music/mixkit-conference-audience-clapping-strongly-476.wav"></audio>
+<audio data-key="72" src="music/Hangouts_Message.mp3"></audio>
+<audio data-key="68" src="music/mixkit-tribal-drumming-ambience-572.wav"></audio>
+<audio data-key="65" src="music/mixkit-conference-audience-clapping-strongly-476.wav"></audio>
+
+
+
+<script>
+    function playMusic(e){
+        
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+        
+        console.log(audio);
+        if (!audio) {
+            return // stop function
+        }
+        audio.currentTime = 0; // rewind to the start
+        audio.play();
+        key.classList.add('playing');
+        
+    }
+    function removeTransition(e) {
+        if (e.propertyName !== 'transform') {
+            return // skip if it is not a transform
+        }
+        this.classList.remove('playing')
+    }
+    
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+    window.addEventListener('keydown', playMusic)
+</script>
+
+</body>
+</html>
